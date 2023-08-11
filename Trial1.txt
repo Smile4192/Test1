@@ -18,10 +18,10 @@ get(obj, 'a.x.e', true); // true
 get(obj, 'a.x.e', 'My default value'); // My default value
 
 
-function get(obj, path, defaultValue) {
-  const properties = path.split('.');
-  let value = obj;
-  
+function get(obj: object, path: string, defaultValue: any): any {
+  const properties: string[] = path.split('.');
+  let value: any = obj;
+ 
   for (let prop of properties) {
     if (value && value.hasOwnProperty(prop)) {
       value = value[prop];
@@ -29,6 +29,6 @@ function get(obj, path, defaultValue) {
       return defaultValue;
     }
   }
-  
+ 
   return value;
 }
